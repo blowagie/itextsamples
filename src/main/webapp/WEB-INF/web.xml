@@ -1,0 +1,64 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>iText Sample Apps</display-name>
+  <servlet>
+    <servlet-name>hello</servlet-name>
+    <servlet-class>com.itextpdf.HelloServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>us</servlet-name>
+    <servlet-class>com.itextpdf.PublishStates</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>fill</servlet-name>
+    <servlet-class>com.itextpdf.StateFill</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>flatten</servlet-name>
+    <servlet-class>com.itextpdf.StateFlatten</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>us1</servlet-name>
+    <servlet-class>com.itextpdf.ReportServlet1</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>us2</servlet-name>
+    <servlet-class>com.itextpdf.ReportServlet2</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>us3</servlet-name>
+    <servlet-class>com.itextpdf.ReportServlet3</servlet-class>
+  </servlet>
+ 
+  <servlet-mapping>
+    <servlet-name>hello</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>us</servlet-name>
+    <url-pattern>/us</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>fill</servlet-name>
+    <url-pattern>/fill</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>flatten</servlet-name>
+    <url-pattern>/flatten</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>us1</servlet-name>
+    <url-pattern>/us1</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>us2</servlet-name>
+    <url-pattern>/us2</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>us3</servlet-name>
+    <url-pattern>/us3</url-pattern>
+  </servlet-mapping>
+</web-app>
