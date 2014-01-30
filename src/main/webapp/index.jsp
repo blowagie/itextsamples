@@ -2,7 +2,7 @@
 <html>
   <body>
     <h1>iText Samples</h1>
-  <table>
+  <table border="1">
     <tr>
       <td>Hello World PDF:</td>
       <td><a href="/hello">Hello iText</a></td>
@@ -28,6 +28,9 @@
     </tr>
     <tr>
       <td><a href="/us3">How to do it the hard way</a></td>
+    </tr>
+    <tr>
+      <td><a href="/us4">Adding page numbers in a second pass</a></td>
     </tr>
   <table>
  </body>

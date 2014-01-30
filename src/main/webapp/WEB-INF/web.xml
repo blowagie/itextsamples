@@ -32,6 +32,10 @@
     <servlet-name>us3</servlet-name>
     <servlet-class>com.itextpdf.ReportServlet3</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>us4</servlet-name>
+    <servlet-class>com.itextpdf.ReportServlet4</servlet-class>
+  </servlet>
  
   <servlet-mapping>
     <servlet-name>hello</servlet-name>
@@ -60,5 +64,9 @@
   <servlet-mapping>
     <servlet-name>us3</servlet-name>
     <url-pattern>/us3</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>us4</servlet-name>
+    <url-pattern>/us4</url-pattern>
   </servlet-mapping>
 </web-app>
