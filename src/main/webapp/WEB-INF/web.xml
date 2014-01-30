@@ -36,6 +36,10 @@
     <servlet-name>us4</servlet-name>
     <servlet-class>com.itextpdf.ReportServlet4</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>merge</servlet-name>
+    <servlet-class>com.itextpdf.StateFormMerge</servlet-class>
+  </servlet>
  
   <servlet-mapping>
     <servlet-name>hello</servlet-name>
@@ -68,5 +72,9 @@
   <servlet-mapping>
     <servlet-name>us4</servlet-name>
     <url-pattern>/us4</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>merge</servlet-name>
+    <url-pattern>/merge</url-pattern>
   </servlet-mapping>
 </web-app>

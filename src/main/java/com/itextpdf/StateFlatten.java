@@ -42,7 +42,7 @@ public class StateFlatten extends HttpServlet {
           os.flush();
           os.close();
       }
-      catch(/*Document*/Exception de) {
+      catch(DocumentException de) {
           throw new IOException(de.getMessage());
       }
   }

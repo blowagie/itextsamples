@@ -20,7 +20,7 @@
       <td><a href="/formflatten.html">Flatten</a></td>
     </tr>
     <tr>
-      <td rowspan="3">Fill, flatten and merge:</td>
+      <td rowspan="4">Fill, flatten and merge:</td>
       <td><a href="/us1">How NOT to do it</a></td>
     </tr>
     <tr>
@@ -31,6 +31,10 @@
     </tr>
     <tr>
       <td><a href="/us4">Adding page numbers in a second pass</a></td>
+    </tr>
+    <tr>
+      <td>Merge forms:</td>
+      <td><a href="/merge">Merge</a></td>
     </tr>
   <table>
  </body>
