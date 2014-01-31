@@ -17,12 +17,16 @@ import com.itextpdf.text.pdf.PdfStamper;
 public class FillFlattenMerge1 {
 
     public byte[] manipulatePdf(ServletContext context, String template, String data) throws DocumentException, IOException {
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        // step 1
         Document document = new Document();
+        // step 2
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
         // Using PdfCopy isn't a good idea in this use case.
         // Take a look at FillFlattenMerge2 to find out how to do it right!
         PdfCopy copy = new PdfCopy(document, output);
+        // step 3
         document.open();
+        // step 4
         ByteArrayOutputStream baos;
         PdfReader reader;
         PdfStamper stamper;
@@ -31,10 +35,12 @@ public class FillFlattenMerge1 {
         BufferedReader br = new BufferedReader(new InputStreamReader(context.getResourceAsStream(data)));
         String line = br.readLine();
         while ((line = br.readLine()) != null) {
-            // create a PDF in memory
-            baos = new ByteArrayOutputStream();
+            // create a reader
             reader = new PdfReader(context.getResourceAsStream(template));
+            // create a stamper
+            baos = new ByteArrayOutputStream();
             stamper = new PdfStamper(reader, baos);
+            // get fields and add values
             fields = stamper.getAcroFields();
             tokenizer = new StringTokenizer(line, ";");
             fields.setField("name", tokenizer.nextToken());
@@ -47,6 +53,7 @@ public class FillFlattenMerge1 {
             fields.setField("timezone2", tokenizer.nextToken());
             fields.setField("dst", tokenizer.nextToken());
             stamper.setFormFlattening(true);
+            // close the stamper and the reader
             stamper.close();
             reader.close();
             // add the PDF to PdfCopy
@@ -55,6 +62,7 @@ public class FillFlattenMerge1 {
             reader.close();
         }
         br.close();
+        // step 5
         document.close();
         return output.toByteArray();
     }

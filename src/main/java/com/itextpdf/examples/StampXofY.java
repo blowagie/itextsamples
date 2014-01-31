@@ -15,16 +15,20 @@ import com.itextpdf.text.pdf.PdfStamper;
 public class StampXofY {
 
 	public byte[] manipulatePdf(InputStream is) throws IOException, DocumentException {
-		ByteArrayOutputStream output = new ByteArrayOutputStream();
+    // Create a reader
     PdfReader reader = new PdfReader(is);
-		int n = reader.getNumberOfPages();
+    // Create a stamper
+		ByteArrayOutputStream output = new ByteArrayOutputStream();
 		PdfStamper stamper = new PdfStamper(reader, output);
+    // Add content
 		PdfContentByte pagecontent;
+		int n = reader.getNumberOfPages();
 		for (int i = 0; i < n; ) {
 			pagecontent = stamper.getOverContent(++i);
 			ColumnText.showTextAligned(pagecontent, Element.ALIGN_RIGHT,
 					new Phrase(String.format("page %s of %s", i, n)), 559, 806, 0);
 		}
+    // Close the stamper and the reader
 		stamper.close();
 		reader.close();
     return output.toByteArray();

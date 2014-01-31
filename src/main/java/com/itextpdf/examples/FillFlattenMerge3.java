@@ -52,7 +52,6 @@ public class FillFlattenMerge3 {
     }
 
     public byte[] manipulatePdf(InputStream is1, InputStream is2) throws DocumentException, IOException {
-    	ByteArrayOutputStream output = new ByteArrayOutputStream();
         PdfReader reader = new PdfReader(is1);
         AcroFields form = reader.getAcroFields();
         positions = new HashMap<String, Rectangle>();
@@ -62,12 +61,15 @@ public class FillFlattenMerge3 {
             rectangle = form.getFieldPositions(name).get(0).position;
             positions.put(name, rectangle);
         }
-        
+        // step 1
         Document document = new Document();
+        // step 2
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
         PdfWriter writer = PdfWriter.getInstance(document, output);
         writer.setPageEvent(new Background(writer.getImportedPage(reader, 1)));
+        // step 3
         document.open();
-
+        // step 4
         PdfContentByte cb = writer.getDirectContent();
         StringTokenizer tokenizer;
         BufferedReader br = new BufferedReader(new InputStreamReader(is2));
@@ -81,6 +83,7 @@ public class FillFlattenMerge3 {
             document.newPage();
         }
         br.close();
+        // step 5
         document.close();
         
         reader.close();

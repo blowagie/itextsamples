@@ -20,17 +20,22 @@ import com.itextpdf.text.pdf.PdfStamper;
 public class MergeForms {
 
 	public byte[] manipulatePdf(ServletContext context, String template) throws IOException, DocumentException {
+    // step 1
+    Document document = new Document();
     ByteArrayOutputStream output = new ByteArrayOutputStream();
-		Document document = new Document();
-		PdfCopy copy = new PdfCopy(document, output);
+		// step 2
+    PdfCopy copy = new PdfCopy(document, output);
 		copy.setMergeFields();
+    // step 3
 		document.open();
+    // step 4
 		List<PdfReader> readers = new ArrayList<PdfReader>();
 		for (int i = 0; i < 3; ) {
 			PdfReader reader = new PdfReader(renameFields(context.getResourceAsStream(template), ++i));
 			readers.add(reader);
 			copy.addDocument(reader);
 		}
+    // step 5
 		document.close();
 		for (PdfReader reader : readers) {
 			reader.close();
