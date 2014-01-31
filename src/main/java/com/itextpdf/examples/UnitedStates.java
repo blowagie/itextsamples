@@ -25,10 +25,14 @@ public class UnitedStates {
     public static final Font BOLD = new Font(FontFamily.HELVETICA, 12, Font.BOLD);
     
     public byte[] createPdf(InputStream is) throws IOException, DocumentException {
+        // step 1
+        Document document = new Document(PageSize.A4.rotate());
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        Document document = new Document(PageSize.A4.rotate());
+        // step 2
         PdfWriter.getInstance(document, baos);
+        // step 3
         document.open();
+        // step 4
         PdfPTable table = new PdfPTable(9);
         table.setWidthPercentage(100);
         table.setWidths(new int[]{4, 1, 3, 4, 3, 3, 3, 3, 1});
@@ -41,6 +45,7 @@ public class UnitedStates {
         }
         br.close();
         document.add(table);
+        // step 5
         document.close();
         return baos.toByteArray();
     }

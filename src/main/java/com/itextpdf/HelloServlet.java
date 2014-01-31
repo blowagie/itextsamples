@@ -16,10 +16,15 @@ public class HelloServlet extends HttpServlet {
       throws ServletException, IOException {
         response.setContentType("application/pdf");
         try {
+            // step 1: create a document
             Document document = new Document();
+            // step 2: create a writer
             PdfWriter.getInstance(document, response.getOutputStream());
+            // step 3: open the document
             document.open();
+            // step 4: add content
             document.add(new Paragraph("Hello World"));
+            // step 5: close the document
             document.close();
         } catch (DocumentException de) {
             throw new IOException(de.getMessage());
